@@ -4,8 +4,6 @@ module tb();
 logic clk;
 //logic clk_2;
  logic  i_rst_n;
-  logic [31:0] reg_array [31:0];
-
  /* 
   logic [31:0] reg_x12;
   assign reg_x12 = reg_array[12];*/
@@ -20,7 +18,7 @@ initial begin
 end 
 */
 
-/*/////////////////////////////////////////////SINGLE CYCLE TB//////////////////////////////////////////////
+//////////////////////////////////////////////SINGLE CYCLE TB//////////////////////////////////////////////
 logic [31:0] i_io_sw;
 logic [3:0] i_io_btn;
 logic o_insn_vld;
@@ -46,7 +44,7 @@ singlecycle DUT (.i_clk(clk),
 				 .o_io_lcd(o_io_lcd), 
 				 .i_io_sw(i_io_sw), 
 				 .i_io_btn(i_io_btn)
-				 );*/
+				 );
 /////////////////////////////////////////////LOAD LOGIC TB//////////////////////////////////////////////
 /*
 logic [2:0] funct3;
@@ -377,7 +375,7 @@ expected_alu_data = $signed(operand_a) >>> operand_b[4:0];
 end
 end 
 */
-
+/*
 /////////////////////////////////////////////////////CLA TEST BENCH//////////////////////////////////////
 
 logic [31:0] a, b, sum,sub;
@@ -417,7 +415,7 @@ for (int i = 0; i < 100; i++) begin
 	b = $urandom_range (0, 32'd100);
 end
 end
-
+*/
 
 initial begin
 	clk = 0;

@@ -49,7 +49,7 @@ PC PC_inst (.i_clk(i_clk),
 
 
 
-ram_1KB_instruction #(.MEM_FILE("")) 
+ram_1KB_instruction #(.MEM_FILE("memory.hex")) 
          ram_instr (.i_clk(i_clk),                                                       // never reset instruction memory
                     .i_rst(1'b1), 
                     .i_address(o_pc[31:0]),

@@ -28,7 +28,7 @@ input logic [31:0] i_address;                        //increase the address to 9
 input logic [31:0] i_data;
 output logic [31:0] o_data;
 
- logic [31:0] mem [0:511]; 
+ logic [31:0] mem	[0:511];// [0:511]; 
 
 logic [31:0] temp_data_0, temp_data_1, temp_data_2, temp_data_3;
 

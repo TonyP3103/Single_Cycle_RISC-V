@@ -66,6 +66,7 @@ ram_1KB #(.MEM_FILE(""))                              // modified into 2KiB memo
 ram_1KB_IO   ram_1KB_IO_DUT (	.i_clk(i_clk), 
                                 .i_rst(i_rst),
                                 .i_wren(o_io_wren), 
+				.io_enable(io_enable),
                                 .i_address(i_lsu_addr[16:0]), // 17 lsb of addresses for IO                             
                                 .i_data(o_data_io), 
                                 .o_data(io_data), 

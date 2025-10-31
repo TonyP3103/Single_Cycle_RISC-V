@@ -1,0 +1,1047 @@
+Analysis & Synthesis report for single_cycle
+Thu Oct 30 10:53:09 2025
+Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. General Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Parameter Settings for User Entity Instance: single_cycle:DUT|ram_1KB_instruction:ram_instr
+ 12. Parameter Settings for User Entity Instance: single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data
+ 13. Parameter Settings for User Entity Instance: single_cycle:DUT|LSU:LSU_inst|ram_1KB_IO:ram_1KB_IO_DUT
+ 14. Port Connectivity Checks: "single_cycle:DUT|branch_encoder:branch_encode"
+ 15. Port Connectivity Checks: "single_cycle:DUT|BRC:BRC_int|adder_32_bit:adder_32_bit_BRC"
+ 16. Port Connectivity Checks: "single_cycle:DUT|controller_unit:controller|branch_encoder:branch_encode"
+ 17. Port Connectivity Checks: "single_cycle:DUT|LSU:LSU_inst"
+ 18. Port Connectivity Checks: "single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT|adder_32_bit:adder32bit_ARITHMETIC"
+ 19. Port Connectivity Checks: "single_cycle:DUT|ram_1KB_instruction:ram_instr"
+ 20. Port Connectivity Checks: "single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_1"
+ 21. Port Connectivity Checks: "single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_3"
+ 22. Port Connectivity Checks: "single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_2"
+ 23. Port Connectivity Checks: "single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_1"
+ 24. Port Connectivity Checks: "single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_0|adder_1_bit:adder1bit_3"
+ 25. Port Connectivity Checks: "single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_0|adder_1_bit:adder1bit_2"
+ 26. Port Connectivity Checks: "single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_0|adder_1_bit:adder1bit_1"
+ 27. Port Connectivity Checks: "single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_0|adder_1_bit:adder1bit_0"
+ 28. Port Connectivity Checks: "single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_0"
+ 29. Port Connectivity Checks: "single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_0"
+ 30. Port Connectivity Checks: "single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst"
+ 31. Port Connectivity Checks: "single_cycle:DUT"
+ 32. Post-Synthesis Netlist Statistics for Top Partition
+ 33. Elapsed Time Per Partition
+ 34. Analysis & Synthesis Messages
+ 35. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2024  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++---------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Thu Oct 30 10:53:09 2025          ;
+; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
+; Revision Name                   ; single_cycle                                   ;
+; Top-level Entity Name           ; wrapper                                        ;
+; Family                          ; Cyclone V                                      ;
+; Logic utilization (in ALMs)     ; N/A                                            ;
+; Total registers                 ; 5282                                           ;
+; Total pins                      ; 77                                             ;
+; Total virtual pins              ; 0                                              ;
+; Total block memory bits         ; 0                                              ;
+; Total DSP Blocks                ; 0                                              ;
+; Total HSSI RX PCSs              ; 0                                              ;
+; Total HSSI PMA RX Deserializers ; 0                                              ;
+; Total HSSI TX PCSs              ; 0                                              ;
+; Total HSSI PMA TX Serializers   ; 0                                              ;
+; Total PLLs                      ; 0                                              ;
+; Total DLLs                      ; 0                                              ;
++---------------------------------+------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSXFC6D6F31C6     ;                    ;
+; Top-level entity name                                                           ; wrapper            ; single_cycle       ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 8           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 8           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
+;     Processor 7            ;   0.0%      ;
+;     Processor 8            ;   0.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                            ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                        ; Library ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------+---------+
+; wrapper.sv                       ; yes             ; User SystemVerilog HDL File  ; C:/Users/Muy/Downloads/Single_Cycle_RISC-V/wrapper.sv               ;         ;
+; single_cycle.sv                  ; yes             ; User SystemVerilog HDL File  ; C:/Users/Muy/Downloads/Single_Cycle_RISC-V/single_cycle.sv          ;         ;
+; shifter.sv                       ; yes             ; User SystemVerilog HDL File  ; C:/Users/Muy/Downloads/Single_Cycle_RISC-V/shifter.sv               ;         ;
+; seven_segment_display.sv         ; yes             ; User SystemVerilog HDL File  ; C:/Users/Muy/Downloads/Single_Cycle_RISC-V/seven_segment_display.sv ;         ;
+; regfile.sv                       ; yes             ; User SystemVerilog HDL File  ; C:/Users/Muy/Downloads/Single_Cycle_RISC-V/regfile.sv               ;         ;
+; ram_1KB_IO.sv                    ; yes             ; User SystemVerilog HDL File  ; C:/Users/Muy/Downloads/Single_Cycle_RISC-V/ram_1KB_IO.sv            ;         ;
+; ram_1KB_instruction.sv           ; yes             ; User SystemVerilog HDL File  ; C:/Users/Muy/Downloads/Single_Cycle_RISC-V/ram_1KB_instruction.sv   ;         ;
+; ram_1KB.sv                       ; yes             ; User SystemVerilog HDL File  ; C:/Users/Muy/Downloads/Single_Cycle_RISC-V/ram_1KB.sv               ;         ;
+; PC.sv                            ; yes             ; User SystemVerilog HDL File  ; C:/Users/Muy/Downloads/Single_Cycle_RISC-V/PC.sv                    ;         ;
+; LSU_MUX.sv                       ; yes             ; User SystemVerilog HDL File  ; C:/Users/Muy/Downloads/Single_Cycle_RISC-V/LSU_MUX.sv               ;         ;
+; LSU.sv                           ; yes             ; User SystemVerilog HDL File  ; C:/Users/Muy/Downloads/Single_Cycle_RISC-V/LSU.sv                   ;         ;
+; LOGICAL.sv                       ; yes             ; User SystemVerilog HDL File  ; C:/Users/Muy/Downloads/Single_Cycle_RISC-V/LOGICAL.sv               ;         ;
+; load_logic.sv                    ; yes             ; User SystemVerilog HDL File  ; C:/Users/Muy/Downloads/Single_Cycle_RISC-V/load_logic.sv            ;         ;
+; imm_gen.sv                       ; yes             ; User SystemVerilog HDL File  ; C:/Users/Muy/Downloads/Single_Cycle_RISC-V/imm_gen.sv               ;         ;
+; imm_flag.sv                      ; yes             ; User SystemVerilog HDL File  ; C:/Users/Muy/Downloads/Single_Cycle_RISC-V/imm_flag.sv              ;         ;
+; Decoder.sv                       ; yes             ; User SystemVerilog HDL File  ; C:/Users/Muy/Downloads/Single_Cycle_RISC-V/Decoder.sv               ;         ;
+; controller_unit.sv               ; yes             ; User SystemVerilog HDL File  ; C:/Users/Muy/Downloads/Single_Cycle_RISC-V/controller_unit.sv       ;         ;
+; BRC.sv                           ; yes             ; User SystemVerilog HDL File  ; C:/Users/Muy/Downloads/Single_Cycle_RISC-V/BRC.sv                   ;         ;
+; branch_encoder.sv                ; yes             ; User SystemVerilog HDL File  ; C:/Users/Muy/Downloads/Single_Cycle_RISC-V/branch_encoder.sv        ;         ;
+; ARITHMETIC.sv                    ; yes             ; User SystemVerilog HDL File  ; C:/Users/Muy/Downloads/Single_Cycle_RISC-V/ARITHMETIC.sv            ;         ;
+; ALU_MUX.sv                       ; yes             ; User SystemVerilog HDL File  ; C:/Users/Muy/Downloads/Single_Cycle_RISC-V/ALU_MUX.sv               ;         ;
+; ALU_encoder.sv                   ; yes             ; User SystemVerilog HDL File  ; C:/Users/Muy/Downloads/Single_Cycle_RISC-V/ALU_encoder.sv           ;         ;
+; ALU.sv                           ; yes             ; User SystemVerilog HDL File  ; C:/Users/Muy/Downloads/Single_Cycle_RISC-V/ALU.sv                   ;         ;
+; adder_4_bit.sv                   ; yes             ; User SystemVerilog HDL File  ; C:/Users/Muy/Downloads/Single_Cycle_RISC-V/adder_4_bit.sv           ;         ;
+; adder_32_bit.sv                  ; yes             ; User SystemVerilog HDL File  ; C:/Users/Muy/Downloads/Single_Cycle_RISC-V/adder_32_bit.sv          ;         ;
+; adder_1_bit.sv                   ; yes             ; User SystemVerilog HDL File  ; C:/Users/Muy/Downloads/Single_Cycle_RISC-V/adder_1_bit.sv           ;         ;
+; adder_16_bit.sv                  ; yes             ; User SystemVerilog HDL File  ; C:/Users/Muy/Downloads/Single_Cycle_RISC-V/adder_16_bit.sv          ;         ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------+---------+
+
+
++------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                ;
++---------------------------------------------+--------------+
+; Resource                                    ; Usage        ;
++---------------------------------------------+--------------+
+; Estimate of Logic utilization (ALMs needed) ; 5373         ;
+;                                             ;              ;
+; Combinational ALUT usage for logic          ; 3833         ;
+;     -- 7 input functions                    ; 37           ;
+;     -- 6 input functions                    ; 2690         ;
+;     -- 5 input functions                    ; 375          ;
+;     -- 4 input functions                    ; 376          ;
+;     -- <=3 input functions                  ; 355          ;
+;                                             ;              ;
+; Dedicated logic registers                   ; 5282         ;
+;                                             ;              ;
+; I/O pins                                    ; 77           ;
+;                                             ;              ;
+; Total DSP Blocks                            ; 0            ;
+;                                             ;              ;
+; Maximum fan-out node                        ; KEY[0]~input ;
+; Maximum fan-out                             ; 5283         ;
+; Total fan-out                               ; 51050        ;
+; Average fan-out                             ; 5.51         ;
++---------------------------------------------+--------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                              ;
++--------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
+; Compilation Hierarchy Node                       ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                           ; Entity Name           ; Library Name ;
++--------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
+; |wrapper                                         ; 3833 (0)            ; 5282 (0)                  ; 0                 ; 0          ; 77   ; 0            ; |wrapper                                                                                                                                                                      ; wrapper               ; work         ;
+;    |seven_segment_display:hex0_inst|             ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|seven_segment_display:hex0_inst                                                                                                                                      ; seven_segment_display ; work         ;
+;    |seven_segment_display:hex1_inst|             ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|seven_segment_display:hex1_inst                                                                                                                                      ; seven_segment_display ; work         ;
+;    |seven_segment_display:hex2_inst|             ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|seven_segment_display:hex2_inst                                                                                                                                      ; seven_segment_display ; work         ;
+;    |seven_segment_display:hex3_inst|             ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|seven_segment_display:hex3_inst                                                                                                                                      ; seven_segment_display ; work         ;
+;    |seven_segment_display:hex4_inst|             ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|seven_segment_display:hex4_inst                                                                                                                                      ; seven_segment_display ; work         ;
+;    |seven_segment_display:hex5_inst|             ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|seven_segment_display:hex5_inst                                                                                                                                      ; seven_segment_display ; work         ;
+;    |single_cycle:DUT|                            ; 3791 (138)          ; 5282 (0)                  ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT                                                                                                                                                     ; single_cycle          ; work         ;
+;       |ALU:ALU_inst|                             ; 402 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst                                                                                                                                        ; ALU                   ; work         ;
+;          |ALU_MUX:MUX|                           ; 112 (112)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ALU_MUX:MUX                                                                                                                            ; ALU_MUX               ; work         ;
+;          |ARITHMETIC:ARITHMETIC_DUT|             ; 119 (10)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT                                                                                                              ; ARITHMETIC            ; work         ;
+;             |adder_32_bit:adder32bit_ARITHMETIC| ; 109 (9)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT|adder_32_bit:adder32bit_ARITHMETIC                                                                           ; adder_32_bit          ; work         ;
+;                |adder_16_bit:adder16bit_0|       ; 49 (11)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT|adder_32_bit:adder32bit_ARITHMETIC|adder_16_bit:adder16bit_0                                                 ; adder_16_bit          ; work         ;
+;                   |adder_4_bit:adder4bit_0|      ; 7 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT|adder_32_bit:adder32bit_ARITHMETIC|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_0                         ; adder_4_bit           ; work         ;
+;                      |adder_1_bit:adder1bit_1|   ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT|adder_32_bit:adder32bit_ARITHMETIC|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_0|adder_1_bit:adder1bit_1 ; adder_1_bit           ; work         ;
+;                      |adder_1_bit:adder1bit_2|   ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT|adder_32_bit:adder32bit_ARITHMETIC|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_0|adder_1_bit:adder1bit_2 ; adder_1_bit           ; work         ;
+;                      |adder_1_bit:adder1bit_3|   ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT|adder_32_bit:adder32bit_ARITHMETIC|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_0|adder_1_bit:adder1bit_3 ; adder_1_bit           ; work         ;
+;                   |adder_4_bit:adder4bit_1|      ; 11 (2)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT|adder_32_bit:adder32bit_ARITHMETIC|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_1                         ; adder_4_bit           ; work         ;
+;                      |adder_1_bit:adder1bit_0|   ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT|adder_32_bit:adder32bit_ARITHMETIC|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_1|adder_1_bit:adder1bit_0 ; adder_1_bit           ; work         ;
+;                      |adder_1_bit:adder1bit_1|   ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT|adder_32_bit:adder32bit_ARITHMETIC|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_1|adder_1_bit:adder1bit_1 ; adder_1_bit           ; work         ;
+;                      |adder_1_bit:adder1bit_2|   ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT|adder_32_bit:adder32bit_ARITHMETIC|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_1|adder_1_bit:adder1bit_2 ; adder_1_bit           ; work         ;
+;                      |adder_1_bit:adder1bit_3|   ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT|adder_32_bit:adder32bit_ARITHMETIC|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_1|adder_1_bit:adder1bit_3 ; adder_1_bit           ; work         ;
+;                   |adder_4_bit:adder4bit_2|      ; 10 (4)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT|adder_32_bit:adder32bit_ARITHMETIC|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_2                         ; adder_4_bit           ; work         ;
+;                      |adder_1_bit:adder1bit_0|   ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT|adder_32_bit:adder32bit_ARITHMETIC|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_2|adder_1_bit:adder1bit_0 ; adder_1_bit           ; work         ;
+;                      |adder_1_bit:adder1bit_1|   ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT|adder_32_bit:adder32bit_ARITHMETIC|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_2|adder_1_bit:adder1bit_1 ; adder_1_bit           ; work         ;
+;                      |adder_1_bit:adder1bit_2|   ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT|adder_32_bit:adder32bit_ARITHMETIC|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_2|adder_1_bit:adder1bit_2 ; adder_1_bit           ; work         ;
+;                      |adder_1_bit:adder1bit_3|   ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT|adder_32_bit:adder32bit_ARITHMETIC|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_2|adder_1_bit:adder1bit_3 ; adder_1_bit           ; work         ;
+;                   |adder_4_bit:adder4bit_3|      ; 10 (2)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT|adder_32_bit:adder32bit_ARITHMETIC|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_3                         ; adder_4_bit           ; work         ;
+;                      |adder_1_bit:adder1bit_0|   ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT|adder_32_bit:adder32bit_ARITHMETIC|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_3|adder_1_bit:adder1bit_0 ; adder_1_bit           ; work         ;
+;                      |adder_1_bit:adder1bit_1|   ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT|adder_32_bit:adder32bit_ARITHMETIC|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_3|adder_1_bit:adder1bit_1 ; adder_1_bit           ; work         ;
+;                      |adder_1_bit:adder1bit_2|   ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT|adder_32_bit:adder32bit_ARITHMETIC|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_3|adder_1_bit:adder1bit_2 ; adder_1_bit           ; work         ;
+;                      |adder_1_bit:adder1bit_3|   ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT|adder_32_bit:adder32bit_ARITHMETIC|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_3|adder_1_bit:adder1bit_3 ; adder_1_bit           ; work         ;
+;                |adder_16_bit:adder16bit_1|       ; 51 (11)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT|adder_32_bit:adder32bit_ARITHMETIC|adder_16_bit:adder16bit_1                                                 ; adder_16_bit          ; work         ;
+;                   |adder_4_bit:adder4bit_0|      ; 9 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT|adder_32_bit:adder32bit_ARITHMETIC|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_0                         ; adder_4_bit           ; work         ;
+;                      |adder_1_bit:adder1bit_0|   ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT|adder_32_bit:adder32bit_ARITHMETIC|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_0|adder_1_bit:adder1bit_0 ; adder_1_bit           ; work         ;
+;                      |adder_1_bit:adder1bit_1|   ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT|adder_32_bit:adder32bit_ARITHMETIC|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_0|adder_1_bit:adder1bit_1 ; adder_1_bit           ; work         ;
+;                      |adder_1_bit:adder1bit_2|   ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT|adder_32_bit:adder32bit_ARITHMETIC|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_0|adder_1_bit:adder1bit_2 ; adder_1_bit           ; work         ;
+;                      |adder_1_bit:adder1bit_3|   ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT|adder_32_bit:adder32bit_ARITHMETIC|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_0|adder_1_bit:adder1bit_3 ; adder_1_bit           ; work         ;
+;                   |adder_4_bit:adder4bit_1|      ; 9 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT|adder_32_bit:adder32bit_ARITHMETIC|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_1                         ; adder_4_bit           ; work         ;
+;                      |adder_1_bit:adder1bit_0|   ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT|adder_32_bit:adder32bit_ARITHMETIC|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_1|adder_1_bit:adder1bit_0 ; adder_1_bit           ; work         ;
+;                      |adder_1_bit:adder1bit_1|   ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT|adder_32_bit:adder32bit_ARITHMETIC|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_1|adder_1_bit:adder1bit_1 ; adder_1_bit           ; work         ;
+;                      |adder_1_bit:adder1bit_2|   ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT|adder_32_bit:adder32bit_ARITHMETIC|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_1|adder_1_bit:adder1bit_2 ; adder_1_bit           ; work         ;
+;                      |adder_1_bit:adder1bit_3|   ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT|adder_32_bit:adder32bit_ARITHMETIC|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_1|adder_1_bit:adder1bit_3 ; adder_1_bit           ; work         ;
+;                   |adder_4_bit:adder4bit_2|      ; 9 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT|adder_32_bit:adder32bit_ARITHMETIC|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_2                         ; adder_4_bit           ; work         ;
+;                      |adder_1_bit:adder1bit_0|   ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT|adder_32_bit:adder32bit_ARITHMETIC|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_2|adder_1_bit:adder1bit_0 ; adder_1_bit           ; work         ;
+;                      |adder_1_bit:adder1bit_1|   ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT|adder_32_bit:adder32bit_ARITHMETIC|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_2|adder_1_bit:adder1bit_1 ; adder_1_bit           ; work         ;
+;                      |adder_1_bit:adder1bit_2|   ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT|adder_32_bit:adder32bit_ARITHMETIC|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_2|adder_1_bit:adder1bit_2 ; adder_1_bit           ; work         ;
+;                      |adder_1_bit:adder1bit_3|   ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT|adder_32_bit:adder32bit_ARITHMETIC|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_2|adder_1_bit:adder1bit_3 ; adder_1_bit           ; work         ;
+;                   |adder_4_bit:adder4bit_3|      ; 13 (6)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT|adder_32_bit:adder32bit_ARITHMETIC|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_3                         ; adder_4_bit           ; work         ;
+;                      |adder_1_bit:adder1bit_0|   ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT|adder_32_bit:adder32bit_ARITHMETIC|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_3|adder_1_bit:adder1bit_0 ; adder_1_bit           ; work         ;
+;                      |adder_1_bit:adder1bit_1|   ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT|adder_32_bit:adder32bit_ARITHMETIC|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_3|adder_1_bit:adder1bit_1 ; adder_1_bit           ; work         ;
+;                      |adder_1_bit:adder1bit_2|   ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT|adder_32_bit:adder32bit_ARITHMETIC|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_3|adder_1_bit:adder1bit_2 ; adder_1_bit           ; work         ;
+;                      |adder_1_bit:adder1bit_3|   ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT|adder_32_bit:adder32bit_ARITHMETIC|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_3|adder_1_bit:adder1bit_3 ; adder_1_bit           ; work         ;
+;          |shifter:shifter_DUT|                   ; 171 (171)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ALU:ALU_inst|shifter:shifter_DUT                                                                                                                    ; shifter               ; work         ;
+;       |BRC:BRC_int|                              ; 96 (18)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|BRC:BRC_int                                                                                                                                         ; BRC                   ; work         ;
+;          |adder_32_bit:adder_32_bit_BRC|         ; 78 (12)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|BRC:BRC_int|adder_32_bit:adder_32_bit_BRC                                                                                                           ; adder_32_bit          ; work         ;
+;             |adder_16_bit:adder16bit_0|          ; 28 (14)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|BRC:BRC_int|adder_32_bit:adder_32_bit_BRC|adder_16_bit:adder16bit_0                                                                                 ; adder_16_bit          ; work         ;
+;                |adder_4_bit:adder4bit_0|         ; 2 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|BRC:BRC_int|adder_32_bit:adder_32_bit_BRC|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_0                                                         ; adder_4_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_3|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|BRC:BRC_int|adder_32_bit:adder_32_bit_BRC|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_0|adder_1_bit:adder1bit_3                                 ; adder_1_bit           ; work         ;
+;                |adder_4_bit:adder4bit_1|         ; 5 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|BRC:BRC_int|adder_32_bit:adder_32_bit_BRC|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_1                                                         ; adder_4_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_0|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|BRC:BRC_int|adder_32_bit:adder_32_bit_BRC|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_1|adder_1_bit:adder1bit_0                                 ; adder_1_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_1|      ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|BRC:BRC_int|adder_32_bit:adder_32_bit_BRC|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_1|adder_1_bit:adder1bit_1                                 ; adder_1_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_3|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|BRC:BRC_int|adder_32_bit:adder_32_bit_BRC|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_1|adder_1_bit:adder1bit_3                                 ; adder_1_bit           ; work         ;
+;                |adder_4_bit:adder4bit_2|         ; 4 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|BRC:BRC_int|adder_32_bit:adder_32_bit_BRC|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_2                                                         ; adder_4_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_0|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|BRC:BRC_int|adder_32_bit:adder_32_bit_BRC|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_2|adder_1_bit:adder1bit_0                                 ; adder_1_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_1|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|BRC:BRC_int|adder_32_bit:adder_32_bit_BRC|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_2|adder_1_bit:adder1bit_1                                 ; adder_1_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_3|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|BRC:BRC_int|adder_32_bit:adder_32_bit_BRC|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_2|adder_1_bit:adder1bit_3                                 ; adder_1_bit           ; work         ;
+;                |adder_4_bit:adder4bit_3|         ; 3 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|BRC:BRC_int|adder_32_bit:adder_32_bit_BRC|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_3                                                         ; adder_4_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_1|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|BRC:BRC_int|adder_32_bit:adder_32_bit_BRC|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_3|adder_1_bit:adder1bit_1                                 ; adder_1_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_3|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|BRC:BRC_int|adder_32_bit:adder_32_bit_BRC|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_3|adder_1_bit:adder1bit_3                                 ; adder_1_bit           ; work         ;
+;             |adder_16_bit:adder16bit_1|          ; 38 (14)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|BRC:BRC_int|adder_32_bit:adder_32_bit_BRC|adder_16_bit:adder16bit_1                                                                                 ; adder_16_bit          ; work         ;
+;                |adder_4_bit:adder4bit_0|         ; 4 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|BRC:BRC_int|adder_32_bit:adder_32_bit_BRC|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_0                                                         ; adder_4_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_0|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|BRC:BRC_int|adder_32_bit:adder_32_bit_BRC|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_0|adder_1_bit:adder1bit_0                                 ; adder_1_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_1|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|BRC:BRC_int|adder_32_bit:adder_32_bit_BRC|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_0|adder_1_bit:adder1bit_1                                 ; adder_1_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_3|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|BRC:BRC_int|adder_32_bit:adder_32_bit_BRC|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_0|adder_1_bit:adder1bit_3                                 ; adder_1_bit           ; work         ;
+;                |adder_4_bit:adder4bit_1|         ; 4 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|BRC:BRC_int|adder_32_bit:adder_32_bit_BRC|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_1                                                         ; adder_4_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_0|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|BRC:BRC_int|adder_32_bit:adder_32_bit_BRC|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_1|adder_1_bit:adder1bit_0                                 ; adder_1_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_1|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|BRC:BRC_int|adder_32_bit:adder_32_bit_BRC|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_1|adder_1_bit:adder1bit_1                                 ; adder_1_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_3|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|BRC:BRC_int|adder_32_bit:adder_32_bit_BRC|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_1|adder_1_bit:adder1bit_3                                 ; adder_1_bit           ; work         ;
+;                |adder_4_bit:adder4bit_2|         ; 7 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|BRC:BRC_int|adder_32_bit:adder_32_bit_BRC|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_2                                                         ; adder_4_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_0|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|BRC:BRC_int|adder_32_bit:adder_32_bit_BRC|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_2|adder_1_bit:adder1bit_0                                 ; adder_1_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_1|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|BRC:BRC_int|adder_32_bit:adder_32_bit_BRC|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_2|adder_1_bit:adder1bit_1                                 ; adder_1_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_2|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|BRC:BRC_int|adder_32_bit:adder_32_bit_BRC|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_2|adder_1_bit:adder1bit_2                                 ; adder_1_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_3|      ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|BRC:BRC_int|adder_32_bit:adder_32_bit_BRC|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_2|adder_1_bit:adder1bit_3                                 ; adder_1_bit           ; work         ;
+;                |adder_4_bit:adder4bit_3|         ; 9 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|BRC:BRC_int|adder_32_bit:adder_32_bit_BRC|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_3                                                         ; adder_4_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_0|      ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|BRC:BRC_int|adder_32_bit:adder_32_bit_BRC|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_3|adder_1_bit:adder1bit_0                                 ; adder_1_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_1|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|BRC:BRC_int|adder_32_bit:adder_32_bit_BRC|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_3|adder_1_bit:adder1bit_1                                 ; adder_1_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_2|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|BRC:BRC_int|adder_32_bit:adder_32_bit_BRC|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_3|adder_1_bit:adder1bit_2                                 ; adder_1_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_3|      ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|BRC:BRC_int|adder_32_bit:adder_32_bit_BRC|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_3|adder_1_bit:adder1bit_3                                 ; adder_1_bit           ; work         ;
+;       |LSU:LSU_inst|                             ; 2160 (0)            ; 4256 (0)                  ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|LSU:LSU_inst                                                                                                                                        ; LSU                   ; work         ;
+;          |Decoder:decoder_inst|                  ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|LSU:LSU_inst|Decoder:decoder_inst                                                                                                                   ; Decoder               ; work         ;
+;          |LSU_MUX:LSU_MUX_inst|                  ; 78 (78)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|LSU:LSU_inst|LSU_MUX:LSU_MUX_inst                                                                                                                   ; LSU_MUX               ; work         ;
+;          |ram_1KB:ram_data|                      ; 2029 (2029)         ; 4096 (4096)               ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data                                                                                                                       ; ram_1KB               ; work         ;
+;          |ram_1KB_IO:ram_1KB_IO_DUT|             ; 48 (48)             ; 160 (160)                 ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB_IO:ram_1KB_IO_DUT                                                                                                              ; ram_1KB_IO            ; work         ;
+;       |PC:PC_inst|                               ; 38 (2)              ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|PC:PC_inst                                                                                                                                          ; PC                    ; work         ;
+;          |adder_32_bit:adder_32bit_inst|         ; 36 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst                                                                                                            ; adder_32_bit          ; work         ;
+;             |adder_16_bit:adder16bit_0|          ; 15 (2)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_0                                                                                  ; adder_16_bit          ; work         ;
+;                |adder_4_bit:adder4bit_1|         ; 5 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_1                                                          ; adder_4_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_0|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_1|adder_1_bit:adder1bit_0                                  ; adder_1_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_1|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_1|adder_1_bit:adder1bit_1                                  ; adder_1_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_2|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_1|adder_1_bit:adder1bit_2                                  ; adder_1_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_3|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_1|adder_1_bit:adder1bit_3                                  ; adder_1_bit           ; work         ;
+;                |adder_4_bit:adder4bit_2|         ; 4 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_2                                                          ; adder_4_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_0|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_2|adder_1_bit:adder1bit_0                                  ; adder_1_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_1|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_2|adder_1_bit:adder1bit_1                                  ; adder_1_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_2|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_2|adder_1_bit:adder1bit_2                                  ; adder_1_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_3|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_2|adder_1_bit:adder1bit_3                                  ; adder_1_bit           ; work         ;
+;                |adder_4_bit:adder4bit_3|         ; 4 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_3                                                          ; adder_4_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_0|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_3|adder_1_bit:adder1bit_0                                  ; adder_1_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_1|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_3|adder_1_bit:adder1bit_1                                  ; adder_1_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_2|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_3|adder_1_bit:adder1bit_2                                  ; adder_1_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_3|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_3|adder_1_bit:adder1bit_3                                  ; adder_1_bit           ; work         ;
+;             |adder_16_bit:adder16bit_1|          ; 21 (2)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_1                                                                                  ; adder_16_bit          ; work         ;
+;                |adder_4_bit:adder4bit_0|         ; 5 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_0                                                          ; adder_4_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_0|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_0|adder_1_bit:adder1bit_0                                  ; adder_1_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_1|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_0|adder_1_bit:adder1bit_1                                  ; adder_1_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_2|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_0|adder_1_bit:adder1bit_2                                  ; adder_1_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_3|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_0|adder_1_bit:adder1bit_3                                  ; adder_1_bit           ; work         ;
+;                |adder_4_bit:adder4bit_1|         ; 4 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_1                                                          ; adder_4_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_0|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_1|adder_1_bit:adder1bit_0                                  ; adder_1_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_1|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_1|adder_1_bit:adder1bit_1                                  ; adder_1_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_2|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_1|adder_1_bit:adder1bit_2                                  ; adder_1_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_3|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_1|adder_1_bit:adder1bit_3                                  ; adder_1_bit           ; work         ;
+;                |adder_4_bit:adder4bit_2|         ; 5 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_2                                                          ; adder_4_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_0|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_2|adder_1_bit:adder1bit_0                                  ; adder_1_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_1|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_2|adder_1_bit:adder1bit_1                                  ; adder_1_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_2|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_2|adder_1_bit:adder1bit_2                                  ; adder_1_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_3|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_2|adder_1_bit:adder1bit_3                                  ; adder_1_bit           ; work         ;
+;                |adder_4_bit:adder4bit_3|         ; 5 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_3                                                          ; adder_4_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_0|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_3|adder_1_bit:adder1bit_0                                  ; adder_1_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_1|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_3|adder_1_bit:adder1bit_1                                  ; adder_1_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_2|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_3|adder_1_bit:adder1bit_2                                  ; adder_1_bit           ; work         ;
+;                   |adder_1_bit:adder1bit_3|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_1|adder_4_bit:adder4bit_3|adder_1_bit:adder1bit_3                                  ; adder_1_bit           ; work         ;
+;       |controller_unit:controller|               ; 24 (14)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|controller_unit:controller                                                                                                                          ; controller_unit       ; work         ;
+;          |ALU_encoder:ALU_opcode|                ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|controller_unit:controller|ALU_encoder:ALU_opcode                                                                                                   ; ALU_encoder           ; work         ;
+;          |branch_encoder:branch_encode|          ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|controller_unit:controller|branch_encoder:branch_encode                                                                                             ; branch_encoder        ; work         ;
+;       |imm_gen:imm_gen_inst|                     ; 7 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|imm_gen:imm_gen_inst                                                                                                                                ; imm_gen               ; work         ;
+;          |imm_flag:flag_inst|                    ; 6 (6)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|imm_gen:imm_gen_inst|imm_flag:flag_inst                                                                                                             ; imm_flag              ; work         ;
+;       |load_logic:loadlogic|                     ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|load_logic:loadlogic                                                                                                                                ; load_logic            ; work         ;
+;       |ram_1KB_instruction:ram_instr|            ; 123 (123)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|ram_1KB_instruction:ram_instr                                                                                                                       ; ram_1KB_instruction   ; work         ;
+;       |regfile:regfile_ints|                     ; 801 (801)           ; 994 (994)                 ; 0                 ; 0          ; 0    ; 0            ; |wrapper|single_cycle:DUT|regfile:regfile_ints                                                                                                                                ; regfile               ; work         ;
++--------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                              ;
++--------------------------------------------------------+----------------------------------------+
+; Register name                                          ; Reason for Removal                     ;
++--------------------------------------------------------+----------------------------------------+
+; single_cycle:DUT|regfile:regfile_ints|reg_array[0][0]  ; Stuck at GND due to stuck port data_in ;
+; single_cycle:DUT|regfile:regfile_ints|reg_array[0][4]  ; Stuck at GND due to stuck port data_in ;
+; single_cycle:DUT|regfile:regfile_ints|reg_array[0][14] ; Stuck at GND due to stuck port data_in ;
+; single_cycle:DUT|regfile:regfile_ints|reg_array[0][12] ; Stuck at GND due to stuck port data_in ;
+; single_cycle:DUT|regfile:regfile_ints|reg_array[0][13] ; Stuck at GND due to stuck port data_in ;
+; single_cycle:DUT|regfile:regfile_ints|reg_array[0][2]  ; Stuck at GND due to stuck port data_in ;
+; single_cycle:DUT|regfile:regfile_ints|reg_array[0][6]  ; Stuck at GND due to stuck port data_in ;
+; single_cycle:DUT|regfile:regfile_ints|reg_array[0][7]  ; Stuck at GND due to stuck port data_in ;
+; single_cycle:DUT|regfile:regfile_ints|reg_array[0][5]  ; Stuck at GND due to stuck port data_in ;
+; single_cycle:DUT|regfile:regfile_ints|reg_array[0][10] ; Stuck at GND due to stuck port data_in ;
+; single_cycle:DUT|regfile:regfile_ints|reg_array[0][11] ; Stuck at GND due to stuck port data_in ;
+; single_cycle:DUT|regfile:regfile_ints|reg_array[0][9]  ; Stuck at GND due to stuck port data_in ;
+; single_cycle:DUT|regfile:regfile_ints|reg_array[0][8]  ; Stuck at GND due to stuck port data_in ;
+; single_cycle:DUT|regfile:regfile_ints|reg_array[0][15] ; Stuck at GND due to stuck port data_in ;
+; single_cycle:DUT|regfile:regfile_ints|reg_array[0][16] ; Stuck at GND due to stuck port data_in ;
+; single_cycle:DUT|regfile:regfile_ints|reg_array[0][17] ; Stuck at GND due to stuck port data_in ;
+; single_cycle:DUT|regfile:regfile_ints|reg_array[0][18] ; Stuck at GND due to stuck port data_in ;
+; single_cycle:DUT|regfile:regfile_ints|reg_array[0][19] ; Stuck at GND due to stuck port data_in ;
+; single_cycle:DUT|regfile:regfile_ints|reg_array[0][20] ; Stuck at GND due to stuck port data_in ;
+; single_cycle:DUT|regfile:regfile_ints|reg_array[0][21] ; Stuck at GND due to stuck port data_in ;
+; single_cycle:DUT|regfile:regfile_ints|reg_array[0][22] ; Stuck at GND due to stuck port data_in ;
+; single_cycle:DUT|regfile:regfile_ints|reg_array[0][23] ; Stuck at GND due to stuck port data_in ;
+; single_cycle:DUT|regfile:regfile_ints|reg_array[0][24] ; Stuck at GND due to stuck port data_in ;
+; single_cycle:DUT|regfile:regfile_ints|reg_array[0][25] ; Stuck at GND due to stuck port data_in ;
+; single_cycle:DUT|regfile:regfile_ints|reg_array[0][26] ; Stuck at GND due to stuck port data_in ;
+; single_cycle:DUT|regfile:regfile_ints|reg_array[0][27] ; Stuck at GND due to stuck port data_in ;
+; single_cycle:DUT|regfile:regfile_ints|reg_array[0][28] ; Stuck at GND due to stuck port data_in ;
+; single_cycle:DUT|regfile:regfile_ints|reg_array[0][29] ; Stuck at GND due to stuck port data_in ;
+; single_cycle:DUT|regfile:regfile_ints|reg_array[0][30] ; Stuck at GND due to stuck port data_in ;
+; single_cycle:DUT|regfile:regfile_ints|reg_array[0][31] ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 30                 ;                                        ;
++--------------------------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 5282  ;
+; Number of registers using Synchronous Clear  ; 930   ;
+; Number of registers using Synchronous Load   ; 4126  ;
+; Number of registers using Asynchronous Clear ; 5282  ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 5252  ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------+
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |wrapper|single_cycle:DUT|PC:PC_inst|o_pc[1]                                  ;
+; 3:1                ; 30 bits   ; 60 LEs        ; 0 LEs                ; 60 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|PC:PC_inst|o_pc[12]                                 ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[127][27]          ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[126][22]          ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[125][0]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[124][31]          ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[123][6]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[122][8]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[121][1]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[120][12]          ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[119][24]          ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[118][26]          ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[117][4]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[116][2]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[115][24]          ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[114][5]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[113][20]          ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[112][13]          ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[111][21]          ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[110][11]          ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[109][3]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[108][27]          ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[107][22]          ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[106][12]          ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[105][5]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[104][16]          ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[103][23]          ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[102][20]          ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[101][5]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[100][24]          ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[99][6]            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[98][16]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[97][7]            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[96][1]            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[95][17]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[94][28]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[93][0]            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[92][17]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[91][11]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[90][2]            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[89][23]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[88][31]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[87][3]            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[86][20]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[85][19]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[84][18]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[83][28]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[82][1]            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[81][7]            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[80][9]            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[79][3]            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[78][0]            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[77][13]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[76][17]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[75][29]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[74][22]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[73][8]            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[72][18]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[71][4]            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[70][6]            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[69][7]            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[68][9]            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[67][22]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[66][15]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[65][6]            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[64][22]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[63][7]            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[62][4]            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[61][4]            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[60][27]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[59][11]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[58][31]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[57][28]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[56][24]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[55][24]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[54][14]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[53][22]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[52][21]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[51][15]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[50][1]            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[49][4]            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[48][13]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[47][22]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[46][17]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[45][4]            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[44][13]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[43][27]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[42][14]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[41][19]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[40][8]            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[39][20]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[38][3]            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[37][22]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[36][29]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[35][0]            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[34][6]            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[33][21]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[32][1]            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[31][23]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[30][14]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[29][21]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[28][15]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[27][18]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[26][22]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[25][11]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[24][28]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[23][15]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[22][29]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[21][19]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[20][25]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[19][6]            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[18][21]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[17][19]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[16][27]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[15][21]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[14][20]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[13][0]            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[12][1]            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[11][6]            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[10][25]           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[9][5]             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[8][3]             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[7][3]             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[6][7]             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[5][24]            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[4][13]            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[3][6]             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[2][31]            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[1][29]            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|mem[0][0]             ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |wrapper|single_cycle:DUT|ALU:ALU_inst|shifter:shifter_DUT|shifted_data_2[3]  ;
+; 3:1                ; 28 bits   ; 56 LEs        ; 56 LEs               ; 0 LEs                  ; No         ; |wrapper|single_cycle:DUT|ALU:ALU_inst|shifter:shifter_DUT|shifted_data_2[26] ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |wrapper|single_cycle:DUT|ALU:ALU_inst|shifter:shifter_DUT|shifted_data_3[3]  ;
+; 3:1                ; 24 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |wrapper|single_cycle:DUT|ALU:ALU_inst|shifter:shifter_DUT|shifted_data_3[28] ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |wrapper|single_cycle:DUT|ALU:ALU_inst|shifter:shifter_DUT|shifted_data_1[1]  ;
+; 3:1                ; 30 bits   ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; No         ; |wrapper|single_cycle:DUT|ALU:ALU_inst|shifter:shifter_DUT|shifted_data_1[24] ;
+; 3:1                ; 31 bits   ; 62 LEs        ; 62 LEs               ; 0 LEs                  ; No         ; |wrapper|single_cycle:DUT|ALU:ALU_inst|shifter:shifter_DUT|shifted_data_0[30] ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |wrapper|single_cycle:DUT|i_operand_b[6]                                      ;
+; 4:1                ; 96 bits   ; 192 LEs       ; 192 LEs              ; 0 LEs                  ; No         ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|Mux59                 ;
+; 4:1                ; 30 bits   ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; No         ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|Mux73                 ;
+; 4:1                ; 25 bits   ; 50 LEs        ; 50 LEs               ; 0 LEs                  ; No         ; |wrapper|single_cycle:DUT|Mux9                                                ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|temp_data_3[12]       ;
+; 3:1                ; 24 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |wrapper|single_cycle:DUT|regfile:regfile_ints|data_temp[31]                  ;
+; 5:1                ; 5 bits    ; 15 LEs        ; 15 LEs               ; 0 LEs                  ; No         ; |wrapper|single_cycle:DUT|regfile:regfile_ints|data_temp[0]                   ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 24 LEs               ; 8 LEs                  ; No         ; |wrapper|single_cycle:DUT|i_operand_b[26]                                     ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |wrapper|single_cycle:DUT|i_operand_b[4]                                      ;
+; 9:1                ; 22 bits   ; 132 LEs       ; 110 LEs              ; 22 LEs                 ; No         ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB_IO:ram_1KB_IO_DUT|o_data[20]   ;
+; 9:1                ; 8 bits    ; 48 LEs        ; 40 LEs               ; 8 LEs                  ; No         ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB_IO:ram_1KB_IO_DUT|o_data[8]    ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; No         ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|Mux182                ;
+; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; No         ; |wrapper|single_cycle:DUT|regfile:regfile_ints|Mux42                          ;
+; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; No         ; |wrapper|single_cycle:DUT|regfile:regfile_ints|Mux29                          ;
+; 9:1                ; 8 bits    ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; No         ; |wrapper|single_cycle:DUT|i_operand_b[19]                                     ;
+; 7:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|Mux174                ;
+; 10:1               ; 15 bits   ; 90 LEs        ; 90 LEs               ; 0 LEs                  ; No         ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ALU_MUX:MUX|Mux29                      ;
+; 10:1               ; 16 bits   ; 96 LEs        ; 96 LEs               ; 0 LEs                  ; No         ; |wrapper|single_cycle:DUT|ALU:ALU_inst|ALU_MUX:MUX|Mux5                       ;
+; 11:1               ; 32 bits   ; 224 LEs       ; 224 LEs              ; 0 LEs                  ; No         ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|Mux15                 ;
+; 11:1               ; 32 bits   ; 224 LEs       ; 224 LEs              ; 0 LEs                  ; No         ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|Mux34                 ;
+; 10:1               ; 8 bits    ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; No         ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|Mux185                ;
+; 9:1                ; 8 bits    ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; No         ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|Mux157                ;
+; 13:1               ; 8 bits    ; 64 LEs        ; 16 LEs               ; 48 LEs                 ; No         ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|Mux163                ;
+; 16:1               ; 96 bits   ; 960 LEs       ; 960 LEs              ; 0 LEs                  ; No         ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|Mux50                 ;
+; 18:1               ; 2 bits    ; 24 LEs        ; 22 LEs               ; 2 LEs                  ; No         ; |wrapper|single_cycle:DUT|regfile:regfile_ints|data_temp[3]                   ;
+; 64:1               ; 32 bits   ; 1344 LEs      ; 1344 LEs             ; 0 LEs                  ; No         ; |wrapper|single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data|Mux20                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: single_cycle:DUT|ram_1KB_instruction:ram_instr ;
++----------------+------------+---------------------------------------------------------------+
+; Parameter Name ; Value      ; Type                                                          ;
++----------------+------------+---------------------------------------------------------------+
+; MEM_FILE       ; memory.hex ; String                                                        ;
++----------------+------------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data ;
++----------------+-------+--------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                               ;
++----------------+-------+--------------------------------------------------------------------+
+; MEM_FILE       ;       ; String                                                             ;
++----------------+-------+--------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: single_cycle:DUT|LSU:LSU_inst|ram_1KB_IO:ram_1KB_IO_DUT ;
++----------------+-------+-----------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                        ;
++----------------+-------+-----------------------------------------------------------------------------+
+; MEM_FILE       ;       ; String                                                                      ;
++----------------+-------+-----------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Port Connectivity Checks: "single_cycle:DUT|branch_encoder:branch_encode" ;
++------------+--------+----------+------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                  ;
++------------+--------+----------+------------------------------------------+
+; o_br_less  ; Input  ; Info     ; Explicitly unconnected                   ;
+; o_br_equal ; Input  ; Info     ; Explicitly unconnected                   ;
+; o_pc_sel   ; Output ; Info     ; Explicitly unconnected                   ;
++------------+--------+----------+------------------------------------------+
+
+
++----------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "single_cycle:DUT|BRC:BRC_int|adder_32_bit:adder_32_bit_BRC" ;
++----------+--------+----------+---------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                 ;
++----------+--------+----------+---------------------------------------------------------+
+; cin      ; Input  ; Info     ; Stuck at VCC                                            ;
+; G        ; Output ; Info     ; Explicitly unconnected                                  ;
+; P        ; Output ; Info     ; Explicitly unconnected                                  ;
+; overflow ; Output ; Info     ; Explicitly unconnected                                  ;
++----------+--------+----------+---------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "single_cycle:DUT|controller_unit:controller|branch_encoder:branch_encode" ;
++---------+--------+----------+------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                ;
++---------+--------+----------+------------------------------------------------------------------------+
+; i_br_un ; Output ; Info     ; Explicitly unconnected                                                 ;
++---------+--------+----------+------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------+
+; Port Connectivity Checks: "single_cycle:DUT|LSU:LSU_inst" ;
++------------------+-------+----------+---------------------+
+; Port             ; Type  ; Severity ; Details             ;
++------------------+-------+----------+---------------------+
+; i_io_btn[24..21] ; Input ; Info     ; Stuck at VCC        ;
+; i_io_btn[19..18] ; Input ; Info     ; Stuck at VCC        ;
+; i_io_btn[11..9]  ; Input ; Info     ; Stuck at VCC        ;
+; i_io_btn[7..6]   ; Input ; Info     ; Stuck at VCC        ;
+; i_io_btn[31..25] ; Input ; Info     ; Stuck at GND        ;
+; i_io_btn[15..12] ; Input ; Info     ; Stuck at GND        ;
+; i_io_btn[5..3]   ; Input ; Info     ; Stuck at GND        ;
+; i_io_btn[20]     ; Input ; Info     ; Stuck at GND        ;
+; i_io_btn[17]     ; Input ; Info     ; Stuck at GND        ;
+; i_io_btn[16]     ; Input ; Info     ; Stuck at VCC        ;
+; i_io_btn[8]      ; Input ; Info     ; Stuck at GND        ;
+; i_io_btn[2]      ; Input ; Info     ; Stuck at VCC        ;
+; i_io_btn[1]      ; Input ; Info     ; Stuck at GND        ;
+; i_io_btn[0]      ; Input ; Info     ; Stuck at VCC        ;
++------------------+-------+----------+---------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT|adder_32_bit:adder32bit_ARITHMETIC" ;
++----------+--------+----------+-----------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                                 ;
++----------+--------+----------+-----------------------------------------------------------------------------------------+
+; G        ; Output ; Info     ; Explicitly unconnected                                                                  ;
+; P        ; Output ; Info     ; Explicitly unconnected                                                                  ;
+; overflow ; Output ; Info     ; Explicitly unconnected                                                                  ;
++----------+--------+----------+-----------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------+
+; Port Connectivity Checks: "single_cycle:DUT|ram_1KB_instruction:ram_instr" ;
++-------+-------+----------+-------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                         ;
++-------+-------+----------+-------------------------------------------------+
+; i_rst ; Input ; Info     ; Stuck at VCC                                    ;
++-------+-------+----------+-------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_1" ;
++----------+--------+----------+----------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                          ;
++----------+--------+----------+----------------------------------------------------------------------------------+
+; cout     ; Output ; Info     ; Explicitly unconnected                                                           ;
+; overflow ; Output ; Info     ; Explicitly unconnected                                                           ;
++----------+--------+----------+----------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_3" ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                                                  ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; overflow ; Output ; Info     ; Explicitly unconnected                                                                                   ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_2" ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                                                  ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; overflow ; Output ; Info     ; Explicitly unconnected                                                                                   ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_1" ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                                                  ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; overflow ; Output ; Info     ; Explicitly unconnected                                                                                   ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_0|adder_1_bit:adder1bit_3" ;
++------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                              ;
++------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------+
+; cout ; Output ; Info     ; Explicitly unconnected                                                                                                               ;
++------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_0|adder_1_bit:adder1bit_2" ;
++------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                              ;
++------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------+
+; cout ; Output ; Info     ; Explicitly unconnected                                                                                                               ;
++------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_0|adder_1_bit:adder1bit_1" ;
++------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                              ;
++------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------+
+; cout ; Output ; Info     ; Explicitly unconnected                                                                                                               ;
++------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_0|adder_1_bit:adder1bit_0" ;
++------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                              ;
++------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------+
+; cout ; Output ; Info     ; Explicitly unconnected                                                                                                               ;
++------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_0" ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                                                  ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; overflow ; Output ; Info     ; Explicitly unconnected                                                                                   ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_0" ;
++----------+--------+----------+----------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                          ;
++----------+--------+----------+----------------------------------------------------------------------------------+
+; cout     ; Output ; Info     ; Explicitly unconnected                                                           ;
+; overflow ; Output ; Info     ; Explicitly unconnected                                                           ;
++----------+--------+----------+----------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst" ;
++----------+--------+----------+--------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                ;
++----------+--------+----------+--------------------------------------------------------+
+; b[31..3] ; Input  ; Info     ; Stuck at GND                                           ;
+; b[1..0]  ; Input  ; Info     ; Stuck at GND                                           ;
+; b[2]     ; Input  ; Info     ; Stuck at VCC                                           ;
+; cin      ; Input  ; Info     ; Stuck at GND                                           ;
+; G        ; Output ; Info     ; Explicitly unconnected                                 ;
+; P        ; Output ; Info     ; Explicitly unconnected                                 ;
+; cout     ; Output ; Info     ; Explicitly unconnected                                 ;
+; overflow ; Output ; Info     ; Explicitly unconnected                                 ;
++----------+--------+----------+--------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "single_cycle:DUT"                                                                                                                                              ;
++-----------------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                                                                                             ;
++-----------------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; i_io_sw         ; Input  ; Warning  ; Input port expression (10 bits) is smaller than the input port (32 bits) it drives.  Extra input bit(s) "i_io_sw[31..10]" will be connected to GND. ;
+; o_io_ledr       ; Output ; Warning  ; Output or bidir port (32 bits) is wider than the port expression (10 bits) it drives; bit(s) "o_io_ledr[31..10]" have no fanouts                    ;
+; o_io_ledg       ; Output ; Warning  ; Output or bidir port (32 bits) is wider than the port expression (10 bits) it drives; bit(s) "o_io_ledg[31..10]" have no fanouts                    ;
+; o_io_lcd        ; Output ; Info     ; Explicitly unconnected                                                                                                                              ;
+; o_io_hex0[6..4] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                 ;
+; o_io_hex1[6..4] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                 ;
+; o_io_hex2[6..4] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                 ;
+; o_io_hex3[6..4] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                 ;
+; o_io_hex4[6..4] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                 ;
+; o_io_hex5[6..4] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                 ;
+; o_io_hex6       ; Output ; Info     ; Explicitly unconnected                                                                                                                              ;
+; o_io_hex7       ; Output ; Info     ; Explicitly unconnected                                                                                                                              ;
+; o_pc_debug      ; Output ; Info     ; Explicitly unconnected                                                                                                                              ;
+; o_insn_vld      ; Output ; Info     ; Explicitly unconnected                                                                                                                              ;
++-----------------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 5282                        ;
+;     CLR SLD           ; 30                          ;
+;     ENA CLR           ; 226                         ;
+;     ENA CLR SCLR      ; 930                         ;
+;     ENA CLR SLD       ; 4096                        ;
+; arriav_lcell_comb     ; 3839                        ;
+;     extend            ; 37                          ;
+;         7 data inputs ; 37                          ;
+;     normal            ; 3802                        ;
+;         1 data inputs ; 8                           ;
+;         2 data inputs ; 208                         ;
+;         3 data inputs ; 145                         ;
+;         4 data inputs ; 376                         ;
+;         5 data inputs ; 375                         ;
+;         6 data inputs ; 2690                        ;
+; boundary_port         ; 77                          ;
+;                       ;                             ;
+; Max LUT depth         ; 19.00                       ;
+; Average LUT depth     ; 12.60                       ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:34     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+    Info: Processing started: Thu Oct 30 10:51:49 2025
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off single_cycle -c single_cycle
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file wrapper.sv
+    Info (12023): Found entity 1: wrapper File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/wrapper.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file tb.sv
+    Info (12023): Found entity 1: tb File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/tb.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file single_cycle.sv
+    Info (12023): Found entity 1: single_cycle File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/single_cycle.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file shifter_32_bit_right.sv
+    Info (12023): Found entity 1: shifter_32_bit_right File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/shifter_32_bit_right.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file shifter_32_bit_left.sv
+    Info (12023): Found entity 1: shifter_32_bit_left File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/shifter_32_bit_left.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file shifter.sv
+    Info (12023): Found entity 1: shifter File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/shifter.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file seven_segment_display.sv
+    Info (12023): Found entity 1: seven_segment_display File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/seven_segment_display.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file regfile.sv
+    Info (12023): Found entity 1: regfile File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/regfile.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file ram_1kb_io.sv
+    Info (12023): Found entity 1: ram_1KB_IO File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/ram_1KB_IO.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file ram_1kb_instruction.sv
+    Info (12023): Found entity 1: ram_1KB_instruction File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/ram_1KB_instruction.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file ram_1kb.sv
+    Info (12023): Found entity 1: ram_1KB File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/ram_1KB.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file pc.sv
+    Info (12023): Found entity 1: PC File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/PC.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file lsu_mux.sv
+    Info (12023): Found entity 1: LSU_MUX File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/LSU_MUX.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file lsu.sv
+    Info (12023): Found entity 1: LSU File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/LSU.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file logical.sv
+    Info (12023): Found entity 1: LOGICAL File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/LOGICAL.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file load_logic.sv
+    Info (12023): Found entity 1: load_logic File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/load_logic.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file imm_gen.sv
+    Info (12023): Found entity 1: imm_gen File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/imm_gen.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file imm_flag.sv
+    Info (12023): Found entity 1: imm_flag File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/imm_flag.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file decoder.sv
+    Info (12023): Found entity 1: Decoder File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/Decoder.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file controller_unit.sv
+    Info (12023): Found entity 1: controller_unit File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/controller_unit.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file brc.sv
+    Info (12023): Found entity 1: BRC File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/BRC.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file branch_encoder.sv
+    Info (12023): Found entity 1: branch_encoder File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/branch_encoder.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file arithmetic.sv
+    Info (12023): Found entity 1: ARITHMETIC File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/ARITHMETIC.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file alu_mux.sv
+    Info (12023): Found entity 1: ALU_MUX File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/ALU_MUX.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file alu_encoder.sv
+    Info (12023): Found entity 1: ALU_encoder File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/ALU_encoder.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file alu.sv
+    Info (12023): Found entity 1: ALU File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/ALU.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file adder_4_bit.sv
+    Info (12023): Found entity 1: adder_4_bit File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/adder_4_bit.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file adder_32_bit.sv
+    Info (12023): Found entity 1: adder_32_bit File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/adder_32_bit.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file adder_1_bit.sv
+    Info (12023): Found entity 1: adder_1_bit File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/adder_1_bit.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file adder_16_bit.sv
+    Info (12023): Found entity 1: adder_16_bit File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/adder_16_bit.sv Line: 1
+Warning (10236): Verilog HDL Implicit Net warning at BRC.sv(25): created implicit net for "signed_less" File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/BRC.sv Line: 25
+Info (12127): Elaborating entity "wrapper" for the top level hierarchy
+Info (12128): Elaborating entity "single_cycle" for hierarchy "single_cycle:DUT" File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/wrapper.sv Line: 28
+Warning (10034): Output port "o_io_hex6" at single_cycle.sv(14) has no driver File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/single_cycle.sv Line: 14
+Warning (10034): Output port "o_io_hex7" at single_cycle.sv(15) has no driver File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/single_cycle.sv Line: 15
+Warning (10034): Output port "o_insn_vld" at single_cycle.sv(18) has no driver File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/single_cycle.sv Line: 18
+Info (12128): Elaborating entity "PC" for hierarchy "single_cycle:DUT|PC:PC_inst" File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/single_cycle.sv Line: 48
+Info (12128): Elaborating entity "adder_32_bit" for hierarchy "single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst" File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/PC.sv Line: 27
+Info (12128): Elaborating entity "adder_16_bit" for hierarchy "single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_0" File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/adder_32_bit.sv Line: 21
+Warning (10034): Output port "cout" at adder_16_bit.sv(6) has no driver File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/adder_16_bit.sv Line: 6
+Info (12128): Elaborating entity "adder_4_bit" for hierarchy "single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_0" File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/adder_16_bit.sv Line: 21
+Info (12128): Elaborating entity "adder_1_bit" for hierarchy "single_cycle:DUT|PC:PC_inst|adder_32_bit:adder_32bit_inst|adder_16_bit:adder16bit_0|adder_4_bit:adder4bit_0|adder_1_bit:adder1bit_0" File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/adder_4_bit.sv Line: 13
+Info (12128): Elaborating entity "ram_1KB_instruction" for hierarchy "single_cycle:DUT|ram_1KB_instruction:ram_instr" File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/single_cycle.sv Line: 58
+Warning (10850): Verilog HDL warning at ram_1KB_instruction.sv(15): number of words (77) in memory file does not match the number of elements in the address range [0:256] File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/ram_1KB_instruction.sv Line: 15
+Warning (10030): Net "mem.data_a" at ram_1KB_instruction.sv(10) has no driver or initial value, using a default initial value '0' File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/ram_1KB_instruction.sv Line: 10
+Warning (10030): Net "mem.waddr_a" at ram_1KB_instruction.sv(10) has no driver or initial value, using a default initial value '0' File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/ram_1KB_instruction.sv Line: 10
+Warning (10030): Net "mem.we_a" at ram_1KB_instruction.sv(10) has no driver or initial value, using a default initial value '0' File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/ram_1KB_instruction.sv Line: 10
+Info (12128): Elaborating entity "regfile" for hierarchy "single_cycle:DUT|regfile:regfile_ints" File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/single_cycle.sv Line: 69
+Info (12128): Elaborating entity "imm_gen" for hierarchy "single_cycle:DUT|imm_gen:imm_gen_inst" File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/single_cycle.sv Line: 74
+Info (12128): Elaborating entity "imm_flag" for hierarchy "single_cycle:DUT|imm_gen:imm_gen_inst|imm_flag:flag_inst" File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/imm_gen.sv Line: 10
+Info (12128): Elaborating entity "ALU" for hierarchy "single_cycle:DUT|ALU:ALU_inst" File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/single_cycle.sv Line: 83
+Info (12128): Elaborating entity "ARITHMETIC" for hierarchy "single_cycle:DUT|ALU:ALU_inst|ARITHMETIC:ARITHMETIC_DUT" File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/ALU.sv Line: 14
+Info (12128): Elaborating entity "LOGICAL" for hierarchy "single_cycle:DUT|ALU:ALU_inst|LOGICAL:LOGICAL_DUT" File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/ALU.sv Line: 20
+Info (12128): Elaborating entity "shifter" for hierarchy "single_cycle:DUT|ALU:ALU_inst|shifter:shifter_DUT" File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/ALU.sv Line: 27
+Info (12128): Elaborating entity "ALU_MUX" for hierarchy "single_cycle:DUT|ALU:ALU_inst|ALU_MUX:MUX" File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/ALU.sv Line: 34
+Info (12128): Elaborating entity "LSU" for hierarchy "single_cycle:DUT|LSU:LSU_inst" File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/single_cycle.sv Line: 104
+Info (12128): Elaborating entity "Decoder" for hierarchy "single_cycle:DUT|LSU:LSU_inst|Decoder:decoder_inst" File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/LSU.sv Line: 50
+Info (12128): Elaborating entity "ram_1KB" for hierarchy "single_cycle:DUT|LSU:LSU_inst|ram_1KB:ram_data" File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/LSU.sv Line: 64
+Warning (10036): Verilog HDL or VHDL warning at ram_1KB.sv(35): object "byte_4" assigned a value but never read File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/ram_1KB.sv Line: 35
+Warning (10036): Verilog HDL or VHDL warning at ram_1KB.sv(35): object "byte_5" assigned a value but never read File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/ram_1KB.sv Line: 35
+Warning (10036): Verilog HDL or VHDL warning at ram_1KB.sv(35): object "byte_6" assigned a value but never read File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/ram_1KB.sv Line: 35
+Warning (10036): Verilog HDL or VHDL warning at ram_1KB.sv(35): object "byte_7" assigned a value but never read File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/ram_1KB.sv Line: 35
+Warning (10027): Verilog HDL or VHDL warning at the ram_1KB.sv(79): index expression is not wide enough to address all of the elements in the array File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/ram_1KB.sv Line: 79
+Warning (10027): Verilog HDL or VHDL warning at the ram_1KB.sv(80): index expression is not wide enough to address all of the elements in the array File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/ram_1KB.sv Line: 80
+Info (12128): Elaborating entity "ram_1KB_IO" for hierarchy "single_cycle:DUT|LSU:LSU_inst|ram_1KB_IO:ram_1KB_IO_DUT" File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/LSU.sv Line: 84
+Info (12128): Elaborating entity "LSU_MUX" for hierarchy "single_cycle:DUT|LSU:LSU_inst|LSU_MUX:LSU_MUX_inst" File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/LSU.sv Line: 94
+Info (10264): Verilog HDL Case Statement information at LSU_MUX.sv(7): all case item expressions in this case statement are onehot File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/LSU_MUX.sv Line: 7
+Info (12128): Elaborating entity "controller_unit" for hierarchy "single_cycle:DUT|controller_unit:controller" File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/single_cycle.sv Line: 127
+Info (12128): Elaborating entity "ALU_encoder" for hierarchy "single_cycle:DUT|controller_unit:controller|ALU_encoder:ALU_opcode" File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/controller_unit.sv Line: 18
+Info (12128): Elaborating entity "branch_encoder" for hierarchy "single_cycle:DUT|controller_unit:controller|branch_encoder:branch_encode" File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/controller_unit.sv Line: 25
+Info (12128): Elaborating entity "load_logic" for hierarchy "single_cycle:DUT|load_logic:loadlogic" File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/single_cycle.sv Line: 133
+Info (12128): Elaborating entity "BRC" for hierarchy "single_cycle:DUT|BRC:BRC_int" File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/single_cycle.sv Line: 140
+Info (12128): Elaborating entity "seven_segment_display" for hierarchy "seven_segment_display:hex0_inst" File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/wrapper.sv Line: 30
+Critical Warning (127005): Memory depth (512) in the design file differs from memory depth (257) in the Memory Initialization File "C:/Users/Muy/Downloads/Single_Cycle_RISC-V/db/single_cycle.ram0_ram_1KB_instruction_1a48060c.hdl.mif" -- setting initial value for remaining addresses to 0
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/Muy/Downloads/Single_Cycle_RISC-V/db/single_cycle.ram0_ram_1KB_instruction_1a48060c.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (286030): Timing-Driven Synthesis is running
+Info (144001): Generated suppressed messages file C:/Users/Muy/Downloads/Single_Cycle_RISC-V/output_files/single_cycle.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 3 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/wrapper.sv Line: 4
+    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/wrapper.sv Line: 4
+    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/Muy/Downloads/Single_Cycle_RISC-V/wrapper.sv Line: 4
+Info (21057): Implemented 9191 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 15 input pins
+    Info (21059): Implemented 62 output pins
+    Info (21061): Implemented 9114 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 23 warnings
+    Info: Peak virtual memory: 4967 megabytes
+    Info: Processing ended: Thu Oct 30 10:53:09 2025
+    Info: Elapsed time: 00:01:20
+    Info: Total CPU time (on all processors): 00:00:55
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/Muy/Downloads/Single_Cycle_RISC-V/output_files/single_cycle.map.smsg.
+
+
